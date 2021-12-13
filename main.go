@@ -12,6 +12,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/TAJ4K/goRandomUA"
 )
 
 
@@ -110,7 +112,7 @@ func genAcc(catchall string, proxyListArr []string, wg *sync.WaitGroup){
 	req.Header.Set("sec-fetch-dest", "empty")
 	req.Header.Set("sec-fetch-mode", "cors")
 	req.Header.Set("sec-fetch-site", "same-origin")
-	req.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36")
+	req.Header.Set("user-agent", goRandomUA.RandomUA())
 
 	resp, err := client.Do(req)
 	if err != nil {
