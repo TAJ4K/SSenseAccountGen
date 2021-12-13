@@ -27,6 +27,8 @@ type Data struct {
 }
 
 func main(){
+	rand.Seed(time.Now().UTC().UnixNano())
+
 	configFile, err := os.Open("config.json")
 	if(err != nil) { fmt.Println(err) }
 	config, _ := ioutil.ReadAll(configFile)
@@ -141,7 +143,6 @@ func writeFile(){
 
 func randSeq(n int) string {
     b := make([]rune, n)
-	rand.Seed(time.Now().UTC().UnixNano())
     for i := range b {
         b[i] = letters[rand.Intn(len(letters))]
     }
