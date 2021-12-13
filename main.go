@@ -58,7 +58,6 @@ func main(){
 func genAcc(catchall string, proxyListArr []string, wg *sync.WaitGroup){	
 	defer wg.Done()
 
-	rand.Seed(time.Now().UTC().UnixNano())
 	proxySeed := rand.Intn(len(proxyListArr))
 
 	proxy := strings.Split(proxyListArr[proxySeed], ":")
